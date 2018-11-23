@@ -1,14 +1,15 @@
-package pa2.testSuite;
+package library.service;
 
+import library.model.Book;
+import library.model.SplayTreeNode;
 import org.junit.Before;
 import org.junit.Test;
-import pa2.SPL_DIGITAL_LIB.Book;
-import pa2.SPL_DIGITAL_LIB.SplayTreeNode;
-import pa2.SPL_DIGITAL_LIB.SplayTreeUtils;
 
 import static org.junit.Assert.*;
 
-public class SplayTreeUtilsTests {
+public class BookSplayTreeServiceTests {
+    
+    private final BookSplayTreeService bookSplayTreeService = new BookSplayTreeService();
 
     private final Book micaelaBook = new Book("A Book", "Micaela", 12345678);
     private final Book benBook = new Book("Another Book", "Ben", 87654312);
@@ -53,9 +54,9 @@ public class SplayTreeUtilsTests {
         node6.parent = node3;
 
         node1byIsbn = new SplayTreeNode<>(benBook);
-        assert benBook.ISBN > ellisBook.ISBN; // Protect against ISBNs accidentally getting changed
+        assert benBook.getIsbn() > ellisBook.getIsbn(); // Protect against ISBNs accidentally getting changed
         node2byIsbn = new SplayTreeNode<>(ellisBook);
-        assert andreBook.ISBN > benBook.ISBN; // Protect against ISBNs accidentally getting changed
+        assert andreBook.getIsbn() > benBook.getIsbn(); // Protect against ISBNs accidentally getting changed
         node3byIsbn = new SplayTreeNode<>(andreBook);
 
         node1byIsbn.left = node2byIsbn;
@@ -68,7 +69,7 @@ public class SplayTreeUtilsTests {
     public void zig_performsRightRotation() {
         // Given
         // When
-        SplayTreeUtils.zig(node2);
+        bookSplayTreeService.zig(node2);
 
         // Then
         assertNull(node2.parent);
@@ -93,8 +94,11 @@ public class SplayTreeUtilsTests {
 
     @Test
     public void zag_performsLeftRotation() {
-        SplayTreeUtils.zag(node3);
+        // Given
+        // When
+        bookSplayTreeService.zag(node3);
 
+        // Then
         assertNull(node3.parent);
         assertSame(node1, node3.left);
         assertNull(node3.right);
@@ -115,23 +119,13 @@ public class SplayTreeUtilsTests {
         assertNull(node6.right);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void insert_validatesMode() {
-        // Given
-        // When
-        SplayTreeUtils.insert(null, new SplayTreeNode<Book>(), 3);
-
-        // Then
-        fail("Exception should have been thrown");
-    }
-
     @Test
     public void insert_givenEmptyTree_insertsAtRoot() {
         // Given
         SplayTreeNode<Book> node = new SplayTreeNode<>(antonellaBook);
 
         // When
-        SplayTreeNode<Book> root = SplayTreeUtils.insert(null, node, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> root = bookSplayTreeService.insertByAuthor(null, node);
 
         // Then
         assertSame(root, node);
@@ -147,7 +141,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(antonellaBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(root, newNode, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByAuthor(root, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -166,7 +160,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(micaelaBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(root, newNode, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByAuthor(root, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -189,7 +183,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(andreBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(node1, newNode, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByAuthor(node1, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -218,7 +212,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(ellisBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(node1, newNode, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByAuthor(node1, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -247,7 +241,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(shanshanBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(node1, newNode, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByAuthor(node1, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -276,7 +270,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(tomBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(node1, newNode, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByAuthor(node1, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -300,7 +294,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> node7 = new SplayTreeNode<>(antonellaBook);
 
         // When
-        SplayTreeUtils.insert(node1, node7, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        bookSplayTreeService.insertByAuthor(node1, node7);
 
         // Then
         assertNull(node7.parent);
@@ -333,7 +327,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(ellisBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(root, newNode, SplayTreeUtils.ALT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByISBN(root, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -352,7 +346,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(andreBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(root, newNode, SplayTreeUtils.ALT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByISBN(root, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -370,7 +364,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(antonellaBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(node1byIsbn, newNode, SplayTreeUtils.ALT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByISBN(node1byIsbn, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -394,7 +388,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(shanshanBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(node1byIsbn, newNode, SplayTreeUtils.ALT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByISBN(node1byIsbn, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -418,7 +412,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(tomBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(node1byIsbn, newNode, SplayTreeUtils.ALT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByISBN(node1byIsbn, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -442,7 +436,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> newNode = new SplayTreeNode<>(shuaiBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.insert(node1byIsbn, newNode, SplayTreeUtils.ALT_COMPARISON_MODE);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.insertByISBN(node1byIsbn, newNode);
 
         // Then
         assertSame(newNode, newRoot);
@@ -460,21 +454,11 @@ public class SplayTreeUtilsTests {
         assertNull(node2byIsbn.left);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void search_validatesMode() {
-        // Given
-        // When
-        SplayTreeUtils.search(null, antonellaBook, 3);
-
-        // Then
-        fail("Exception should have been thrown");
-    }
-
     @Test
     public void search_givenEmptyTree_returnsNull() {
         // Given
         // When
-        SplayTreeNode<Book> foundNode = SplayTreeUtils.search(null, antonellaBook, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> foundNode = bookSplayTreeService.searchByAuthor(null, antonellaBook);
 
         // Then
         assertNull(foundNode);
@@ -484,7 +468,7 @@ public class SplayTreeUtilsTests {
     public void search_whenSeekingRoot_doesNotChangeTree() {
         // Given
         // When
-        SplayTreeNode<Book> foundNode = SplayTreeUtils.search(node1, micaelaBook, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> foundNode = bookSplayTreeService.searchByAuthor(node1, micaelaBook);
 
         // Then
         assertSame(node1, foundNode);
@@ -498,7 +482,7 @@ public class SplayTreeUtilsTests {
     public void search_whenSeekingLeftChildOfRootByAuthor_splaysIt() {
         // Given
         // When
-        SplayTreeNode<Book> foundNode = SplayTreeUtils.search(node1, benBook, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> foundNode = bookSplayTreeService.searchByAuthor(node1, benBook);
 
         // Then
         assertSame(node2, foundNode);
@@ -527,7 +511,7 @@ public class SplayTreeUtilsTests {
     public void search_whenSeekingRightChildOfRootByAuthor_splaysIt() {
         // Given
         // When
-        SplayTreeNode<Book> foundNode = SplayTreeUtils.search(node1, shuaiBook, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> foundNode = bookSplayTreeService.searchByAuthor(node1, shuaiBook);
 
         // Then
         assertSame(node3, foundNode);
@@ -560,7 +544,7 @@ public class SplayTreeUtilsTests {
         node3.right = null;
 
         // When
-        SplayTreeNode<Book> foundNode = SplayTreeUtils.search(node1, andreBook, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> foundNode = bookSplayTreeService.searchByAuthor(node1, andreBook);
 
         // Then
         assertNotSame(andreBook, foundNode.data);
@@ -586,7 +570,7 @@ public class SplayTreeUtilsTests {
         node3.right = null;
 
         // When
-        SplayTreeNode<Book> foundNode = SplayTreeUtils.search(node1, shanshanBook, SplayTreeUtils.DEFAULT_COMPARISON_MODE);
+        SplayTreeNode<Book> foundNode = bookSplayTreeService.searchByAuthor(node1, shanshanBook);
 
         // Then
         assertNotSame(shanshanBook, foundNode.data);
@@ -609,7 +593,7 @@ public class SplayTreeUtilsTests {
         SplayTreeNode<Book> node = new SplayTreeNode<>(antonellaBook);
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.delete(node, node);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.delete(node, node);
 
         // Then
         assertNull(newRoot);
@@ -624,7 +608,7 @@ public class SplayTreeUtilsTests {
         child.parent = root;
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.delete(root, root);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.delete(root, root);
 
         // Then
         assertSame(newRoot, child);
@@ -642,7 +626,7 @@ public class SplayTreeUtilsTests {
         child.parent = root;
 
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.delete(root, root);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.delete(root, root);
 
         // Then
         assertSame(newRoot, child);
@@ -655,7 +639,7 @@ public class SplayTreeUtilsTests {
     public void delete_whenDeletingRoot_findsMaxOfLeftSubtree() {
         // Given
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.delete(node1, node1);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.delete(node1, node1);
 
         // Then
         assertSame(node5, newRoot);
@@ -680,7 +664,7 @@ public class SplayTreeUtilsTests {
     public void delete_whenDeletingLeftChildOfRootByAuthor_splaysItAndFindsMaxOfLeftSubtree() {
         // Given
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.delete(node1, node2);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.delete(node1, node2);
 
         // Then
         assertSame(node4, newRoot);
@@ -704,7 +688,7 @@ public class SplayTreeUtilsTests {
     public void delete_whenDeletingRightChildOfRootByAuthor_splaysItAndFindsMaxOfLeftSubtree() {
         // Given
         // When
-        SplayTreeNode<Book> newRoot = SplayTreeUtils.delete(node1, node3);
+        SplayTreeNode<Book> newRoot = bookSplayTreeService.delete(node1, node3);
 
         // Then
         assertSame(node6, newRoot);

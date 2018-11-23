@@ -31,6 +31,16 @@
 # **/.idea/modules.xml
 # **/.idea/*.iml
 # **/.idea/modules
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 
 # File-based project format
 *.iws
@@ -38,7 +48,3 @@
 # IntelliJ
 **/out/
 
-# Save files
-src/pa2/SPL_DIGITAL_LIB/spltree_digi_lib_auth\.txt
-src/pa2/SPL_DIGITAL_LIB/spltree_digi_lib_borrowed\.txt
-src/pa2/SPL_DIGITAL_LIB/spltree_digi_lib_isbn\.txt
