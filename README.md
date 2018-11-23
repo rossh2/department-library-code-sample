@@ -27,6 +27,17 @@ so that users can actually use the API.
 * OpenCSV
 * IntelliJ (project configuration checked in for consistency across users)
 
+## Running the application
+
+1. Clone the repository
+2. Install the Maven dependencies (this also runs the tests)
+```
+mvnw install
+```
+3. Run DepartmentLibraryApplication (IntelliJ run configuration provided)
+4. Hit the API at e.g. `http://localhost:8080/api/library/searchByAuthor?authorName=Thomas%20H%20Cormen`
+(Inspect `base_library.tsv` for valid author names and ISBNs.)
+
 ## A note on splay trees
 
 Naturally, there are other implementations of splay trees available and there's no need in real life to hand-write an
