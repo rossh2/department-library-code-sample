@@ -13,6 +13,9 @@ public class Book implements Comparable<Book> {
     @CsvBindByName(column = "ISBN")
     private long isbn;
 
+    /**
+     * Used by CSV and JSON parsers
+     */
     public Book() {
     }
 

@@ -2,9 +2,12 @@ package library.service;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.exceptions.CsvException;
 import library.exception.BorrowingException;
 import library.model.Book;
 import library.model.SplayTreeNode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +17,14 @@ import java.util.List;
 @Service
 public class LibraryService {
 
+    Logger logger = LoggerFactory.getLogger(LibraryService.class);
+
     // In-memory representation of the available books, stored in splay trees
     private SplayTreeNode<Book> authorSplayTree = null;
     private SplayTreeNode<Book> isbnSplayTree = null;
     private SplayTreeNode<Book> borrowedSplayTree = null;
 
+    // Autowired services
     private BookSplayTreeService bookSplayTreeService;
     private FileService fileService;
 
@@ -40,11 +46,18 @@ public class LibraryService {
                 .withThrowExceptions(false)
                 .build();
         List<Book> books = csvToBean.parse();
-//        System.out.println(csvToBean.getCapturedExceptions()); // TODO log
+        handleBaseLibraryExceptions(csvToBean);
 
         for (Book book : books) {
             authorSplayTree = bookSplayTreeService.insertByAuthor(authorSplayTree, new SplayTreeNode<>(book));
             isbnSplayTree = bookSplayTreeService.insertByISBN(isbnSplayTree, new SplayTreeNode<>(book));
+        }
+    }
+
+    private void handleBaseLibraryExceptions(CsvToBean<Book> csvToBean) {
+        List<CsvException> capturedExceptions = csvToBean.getCapturedExceptions();
+        for (CsvException exception : capturedExceptions) {
+            logger.warn("Error reading base library. " + exception.getMessage());
         }
     }
 
