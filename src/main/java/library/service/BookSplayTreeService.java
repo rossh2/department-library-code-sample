@@ -7,16 +7,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookSplayTreeService {
 
-    public static final int AUTHOR_MODE = 0;
-    public static final int ISBN_MODE = 1;
+    private static final int AUTHOR_MODE = 0;
+    private static final int ISBN_MODE = 1;
 
     /**
      * Perform a zig operation on the given node, i.e. perform a single right rotation on its parent to move it up
      * into the position of its parent. Assumes that the node is the left child of its parent.
      *
+     * Package-private for testing.
+     *
      * @param node the node to move into its parent's position, which is a left child of its parent
      */
-    public void zig(SplayTreeNode<Book> node) {
+    /*package*/ void zig(SplayTreeNode<Book> node) {
         SplayTreeNode<Book> parent = node.parent;
         parent.left = node.right;
         if (node.right != null) {
@@ -38,9 +40,11 @@ public class BookSplayTreeService {
      * Perform a zag operation on the given node, i.e. perform a single left rotation on its parent to move it up
      * into the position of its parent. Assumes that the node is the right child of its parent.
      *
+     * Package-private for testing.
+     *
      * @param node the node to move into its parent's position, which is a right child of its parent
      */
-    public void zag(SplayTreeNode<Book> node) {
+    /*package*/ void zag(SplayTreeNode<Book> node) {
         SplayTreeNode<Book> parent = node.parent;
         parent.right = node.left;
         if (node.left != null) {
