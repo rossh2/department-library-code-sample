@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class LibraryService {
 
-    Logger logger = LoggerFactory.getLogger(LibraryService.class);
+    private Logger logger = LoggerFactory.getLogger(LibraryService.class);
 
     // In-memory representation of the available books, stored in splay trees
     private SplayTreeNode<Book> authorSplayTree = null;
