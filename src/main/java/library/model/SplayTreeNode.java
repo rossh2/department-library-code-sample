@@ -3,6 +3,10 @@ package library.model;
 /**
  * A generic class representing a node in a splay tree. It should implement comparable since
  * splay trees are binary search trees, i.e. need to be sorted.
+ *
+ * This class does not follow the bean pattern since it is a plain and simple data structure rather than a
+ * data / business logic object that needs to protect its fields.
+ *
  * @param <T> the type of the data in the node
  */
 public class SplayTreeNode<T extends Comparable<T>> {

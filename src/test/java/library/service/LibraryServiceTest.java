@@ -6,13 +6,9 @@ import library.model.SplayTreeNode;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
-/**
- * Name: Hayley Ross
- * Email: hayleyross@brandeis.edu
- * Assignment: Department_Library
- */
 public class LibraryServiceTest {
 
     private MockFileService mockFileService;
@@ -33,9 +29,9 @@ public class LibraryServiceTest {
 
         // Then
         SplayTreeNode<Book> authorRoot = libraryService.getAuthorSplayTree();
-        assertNull(authorRoot);
+        assertThat(authorRoot, is(nullValue()));
         SplayTreeNode<Book> isbnRoot = libraryService.getIsbnSplayTree();
-        assertNull(isbnRoot);
+        assertThat(isbnRoot, is(nullValue()));
     }
 
     @Test
@@ -49,11 +45,11 @@ public class LibraryServiceTest {
 
         // Then
         SplayTreeNode<Book> authorRoot = libraryService.getAuthorSplayTree();
-        assertNotNull(authorRoot);
+        assertThat(authorRoot, is(not(nullValue())));
         Book book = authorRoot.data;
-        assertEquals("The Algorithm Design Manual", book.getTitle());
-        assertEquals("Steven Skiena", book.getAuthor());
-        assertEquals(9781849967204L, book.getIsbn());
+        assertThat(book.getTitle(), is(equalTo("The Algorithm Design Manual")));
+        assertThat(book.getAuthor(), is(equalTo("Steven Skiena")));
+        assertThat(book.getIsbn(), is(equalTo(9781849967204L)));
     }
 
     @Test
@@ -69,23 +65,23 @@ public class LibraryServiceTest {
 
         // Then
         SplayTreeNode<Book> root = libraryService.getAuthorSplayTree();
-        assertNotNull(root);
-        assertEquals("David Hare", root.data.getAuthor());
-        assertNull(root.parent);
+        assertThat(root, is(not(nullValue())));
+        assertThat(root.data.getAuthor(), is(equalTo("David Hare")));
+        assertThat(root.parent, is(nullValue()));
 
         SplayTreeNode<Book> leftChild = root.left;
-        assertNotNull(leftChild);
-        assertEquals("Brian Christian", leftChild.data.getAuthor());
-        assertSame(root, leftChild.parent);
-        assertNull(leftChild.left);
-        assertNull(leftChild.right);
+        assertThat(leftChild, is(not(nullValue())));
+        assertThat(leftChild.data.getAuthor(), is(equalTo("Brian Christian")));
+        assertThat(leftChild.parent, is(equalTo(root)));
+        assertThat(leftChild.left, is(nullValue()));
+        assertThat(leftChild.right, is(nullValue()));
 
         SplayTreeNode<Book> rightChild = root.right;
-        assertNotNull(rightChild);
-        assertEquals("Steven Skiena", rightChild.data.getAuthor());
-        assertSame(root, rightChild.parent);
-        assertNull(rightChild.left);
-        assertNull(rightChild.right);
+        assertThat(rightChild, is(not(nullValue())));
+        assertThat(rightChild.data.getAuthor(), is(equalTo("Steven Skiena")));
+        assertThat(rightChild.parent, is(equalTo(root)));
+        assertThat(rightChild.left, is(nullValue()));
+        assertThat(rightChild.right, is(nullValue()));
     }
 
     @Test
@@ -105,6 +101,7 @@ public class LibraryServiceTest {
 
         // Then
         SplayTreeNode<Book> root = libraryService.getIsbnSplayTree();
+        // TODO migrate the rest of this file to Hamcrest matchers
         assertNotNull(root);
         assertEquals(hareIsbn, root.data.getIsbn());
         assertNull(root.parent);

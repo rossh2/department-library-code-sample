@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class BookSplayTreeServiceTests {
+public class BookSplayTreeServiceTest {
     
     private final BookSplayTreeService bookSplayTreeService = new BookSplayTreeService();
 
@@ -72,6 +72,7 @@ public class BookSplayTreeServiceTests {
         bookSplayTreeService.zig(node2);
 
         // Then
+        // TODO migrate this entire file to Hamcrest matchers
         assertNull(node2.parent);
         assertSame(node4, node2.left);
         assertSame(node1, node2.right);

@@ -31,3 +31,12 @@ so that users can actually use the API.
 Naturally, there are other implementations of splay trees available and there's no need in real life to hand-write an
 implementation of splay trees. However it's an opportunity to demonstrate some more algorithmic code to constrast with the
 structural code of a web application.
+
+The splay tree code is based off one of the larger programming assignments for our Data Structures 
+class at Brandeis, which involved a console application backed by in-memory splay trees.
+
+## TODOs
+
+* Migrate the rest of BookSplayTreeServiceTest and LibraryServiceTest to Hamcrest matchers (since they're nicer than the JUnit ones
+but vanilla JUnit was required for the assignment this project was based on).
+* Add a React or other single-page-app frontend
