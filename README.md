@@ -25,6 +25,7 @@ so that users can actually use the API.
 * Maven
 * Spring Boot
 * OpenCSV
+* IntelliJ (project configuration checked in for consistency across users)
 
 ## A note on splay trees
 
@@ -40,3 +41,5 @@ class at Brandeis, which involved a console application backed by in-memory spla
 * Migrate the rest of BookSplayTreeServiceTest and LibraryServiceTest to Hamcrest matchers (since they're nicer than the JUnit ones
 but vanilla JUnit was required for the assignment this project was based on).
 * Add a React or other single-page-app frontend
+* Persist the splay trees to a database when the application is shut down, and load the base library from the same database 
+if no trees were persisted
