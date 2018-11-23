@@ -1,0 +1,103 @@
+The Algorithm Design Manual	Steven Skiena	9781849967204
+Algorithms to Live By: The Computer Science of Human Decisions	Brian Christian	9781250118363
+Algorithmics — The Spirit of Computing	David Hare	9783642272653
+Pearls of Functional Algorithm Design	Richard Bird	9780521513388
+Algorithms	Robert Sedgewick	9780321573513
+Algorithms In A Nutshell	George T. Heineman	9781491948927
+Grokking Algorithms: An illustrated guide for programmers and other curious people	Aditya Bhargava	9781617292231
+Essentials of Computer Architecture	Douglas Comer	9781138626591
+Life Out of Sequence: A Data-Driven History of Bioinformatics	Hallam Stevens	9780226080208
+Engineering: A Compiler, 2nd Edition	Keith Cooper & Linda Torczon	9780120884780
+Modern Compiler Implementation in C	Andrew Appel	9780521607650
+Principles of Program Analysis	Flemming Nielson	9783540654100
+Introduction to the Theory of Computation	Michael Sipser	9781133187790
+C# in Depth	John Skeet	9781617294532
+Elements of Programming	Alexander A. Stepanov	9780321635372
+Structure and Interpretation of Computer Programs	Harold Abelson	9780262510875
+Designing for Scalability with Erlang/OTP — Implement Robust, Fault-Tolerant Systems	Francesco Cesarini	9781449320737
+The Go Programming Language	Alan A. A. Donovan	9780134190440
+The Annotated Turing: A Guided Tour Through Alan Turing's Historic Paper on Computability and the Turing Machine	Charles Petzold	9780470229057
+Code Complete: A Practical Handbook of Software Construction, Second Edition	Steve McConnell	9780735619678
+Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy	Cathy O’Neil	9780553418811
+Quantum Computing Since Democritus	Scott Aaronson	9780521199568
+The Elements of Computing Systems: Building a Modern Computer from First Principles	Noam Nisan & Shimon Schocken	9780262640688
+The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition (2nd Edition)	Frederick P. Brooks Jr.	9780201835953
+Peopleware: Productive Projects and Teams	Tom DeMarco & Timothy Lister	9780932633057
+A Science of Operations	Mark Priestley	9781447126355
+The Practice of Programming	Brian W. Kernighan & Rob Pike	9780201615869
+Zero Bugs and Program Faster	Kate Thompson	9780996193306
+Measuring and managing performance in organizations	Robert Austin	9780932633361
+Designing Data-Intensive Applications	Martin Kleppmann	9781449373320
+Practical Foundations for Programming Languages	Robert Harper	9781107150300
+Gödel, Escher, Bach: An Eternal Golden Braid	Douglas R. Hofstadter	9780465026562
+How To Solve It: Modern Heuristics	Zbigniew Michalewicz & David Fogel	9783642061349
+Semantic Web for the Working Ontologist: Effective Modeling in RDFS and OWL	Dean Allemang & Jim Hendler	9780123859655
+The Plausibility of Life: Resolving Darwin’s Dilemma	Marc Kirschner & John Gerhart	9780300119770
+The Grammar of Graphics (Statistics and Computing)	Leland Wilkinson	9780387245447
+Artificial Intelligence: A Modern Approach	Peter Norvig	9780136042594
+Superintelligence	Nick Bostrom	9780198739838
+Deep Learning (Adaptive Computation and Machine Learning series)	Ian Goodfellow, Yoshua Bengio, Aaron Courville	9780262035613
+Scala for Machine Learning	Patrick Nicolas	9781783558742
+Markov Logic: An Interface Layer for Artificial Intelligence	Pedro Dominos & Daniel Lowd	9781598296921
+Introduction To Statistical Learning with Applications in R	Daniela Witten & Gareth James	9781461471370
+Machine Learning: A Probabilistic Perspective (Adaptive Computation and Machine Learning series)	Kevin P Murphy & Francis Bach	9780262018029
+Good Math: A Geek’s Guide to the Beauty of Numbers, Logic, and Computation	Mark Chu-Carroll	9781937785338
+The Art of Multiprocessor Programming	Nir Shavit & Maurice Herlihy	9780123705914
+Patterns in Network Architecture: A Return to Fundamentals	John Day	9780137063383
+Internetworking with TCP/IP	Dr Douglas Comer	9789332550100
+Applied Microsoft .NET Framework Programming	Jeffrey Richter	9780735617872
+High Performance Browser Networking	Ilya Grigorik	9781449344764
+Network Security Through Data Analysis	Michael Collins	9781491962848
+A First Course in Network Theory	Ernesto Estrada & Phillip Knight	9780198726463
+Network Algorithmics	George Varghese	9780120884773
+The Cathedral and the Bazaar	Eric S. Raymond	9781565927247
+Effective Python	Brett Slatkin	9780134034287
+Problem Solving with Algorithms and Data Structures using Python	Bradley Miller & David Ranum	9781590282571
+Structured Parallel Programming: Patterns for Efficient Computation	Michael McCool, James Reinders & Arch D. Robison	9780124159938
+Quantum Computing for Computer Scientists	Noson Yanofsky & Mirco Mannucci	9780521879965
+Understanding Computation: From Simple Machines to Impossible Programs	Tom Stuart	9781449329273
+Star Schema — The Complete Reference	Christopher Adamson	9780071744324
+Programming Pearls	Jon Bentley	9780201657883
+Head First Design Patterns	Eric Freeman	9780596007126
+Design Patterns: Elements of Reusable Object-Oriented Software	Erich Gamma	9780201633610
+The Design of Design	Fred Brooks	9780201362985
+Programming in Scala	Martin Odersky, Lex Spoon & Bill Venners	9780981531687
+Type Inheritance & Relational Theory	C.J. Date	9781491959992
+Type-Driven Development with Idris	Edwin Brady	9781617293023
+Algorithms + Data Structures = Programs	Nickaus Wirth	9789994392261
+Introduction to Algorithms	Thomas H Cormen	9780262033848
+The Basics of Compiler Design	Torben Mogensen	9783319669656
+Modern Compiler Design	Dick Grune & Henri Bal et al	9781461446989
+Dragon book (Compilers: Principles, Techniques, and Tools)	Alfred V Aho	9780321486813
+Problem solving with C++ 9th edition	Walter Savitch	9780133591743
+(Phoenix Project) — The DevOps Handbook: How to Create World‑Class Agility, Reliability, and Security inTechnology Organizations	Gene Kim	9781942788003
+Code: The Hidden Language of Computer Hardware and Software	Charles Petzold	9780735611313
+From Mathematics to Generic Programming	Alex Stepanov & Daniel Rose	9780321942043
+Clean Code	Robert Martin	9780132350884
+Code Complete	Steve Mcconnell	9780735619678
+The Imposters Handbook	Rob Connelly	9780692933039
+Writing Efficient Programs	Jon Bently	9780139702440
+More Programming Pearls: Confessions of a Coder	Jon Bently	9780201118896
+Concepts, Techniques, and Models of Computer Programming	Peter Van Roy & Seif Haridi	9780262220699
+D is for Digital: What a well-informed person should know about computers and communications	Brian Kernighan	9781463733896
+Basic Category Theory for Computer Scientists	Benjamin Pierce	9780262660716
+Learn You a Haskell for Great Good	Miran Lipovaca	9781593272838
+Cracking the Coding Interview: 189 Programming Questions and Solutions	Gayle Laakmann McDowell	9780984782857
+Elements of programming interviews	Gayle McDowell	9780984782857
+You Don’t Know JS	Kyle Simpson	9781491904220
+Javascript : The Good Parts	Douglas Crockford	9780596517748
+Secrets of the Javascript Ninja	John Resig & Bear Bilbeault & Josip Maras	9781617292859
+Eloquent JavaScript	Marijn Haverbeke	9781593275846
+Effective Java 2nd Ed	Joshua Bloch	9780321356680
+Paradigms Of AI Programming: Case Studies in Common Lisp	Peter Norvig	9781558601918
+Reinforcement Learning: An Introduction	Richard Sutton & Andrew Barto	9780262039246
+Machine Learning for Hackers	Drew Conway & John White	9781449303716
+The Master Algorithm	Pedro Domingos	9780465094271
+Hacking — The Art of Exploitation	Jon Erickson	9781593271442
+The Design and Implementation of the FreeBSD Operating System	Marshall McKusick & George Neville-Neil & Robert Watson	9780321968975
+Learn Python the Hard Way	Zed Shaw	9780321884916
+Quantum Mechanics: The Theoretical Minimum	Leonard Susskind & Art Friedman	9780465062904
+Quantum Computation and Quantum Information	Michael Nielsen & Isaac Chuang	9781107002173
+Practical Object-Oriented Design in Ruby	Sandi Metz	9780321721334
+Redis in Action	Josiah Carlson	9781617290855
+The Effective Engineer	Edmond Lau	9780996128100
